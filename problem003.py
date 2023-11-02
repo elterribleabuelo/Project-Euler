@@ -11,13 +11,12 @@ def is_prime(N):
 def get_factores(number):
     divisors = []
     for i in range(2,math.isqrt(number) + 1):
-        while number % i == 0:
-            number = number // i
-            if i not in divisors:
-                divisors.append(i)
-            if number not in divisors and i!=number:
-                divisors.append(number)
-    return divisors
+        if number % i == 0:
+            divisors.append(i)
+            q = number // i
+            if q !=i:
+                divisors.append(q)
+    return sorted(divisors)
 
 def get_factores_primes(divisors):
     factores_primes = []
